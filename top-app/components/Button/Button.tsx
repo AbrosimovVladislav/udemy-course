@@ -4,11 +4,11 @@ import cn from 'classnames';
 
 interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     children: ReactNode;
-    appearance: 'primary' | 'ghost';
+    appearance?: 'primary' | 'ghost';
     arrow?: 'right' | 'down' | 'none';
 }
 
-export const Button = ({appearance, children, arrow = 'none', className, ...props}: ButtonProps) => {
+export const Button = ({appearance = 'ghost', children, arrow = 'none', className, ...props}: ButtonProps) => {
 
     const styleCLass = cn(styles.button, className,{
         [styles.primary]: appearance == 'primary',

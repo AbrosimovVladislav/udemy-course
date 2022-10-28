@@ -1,21 +1,25 @@
-import {Button, Htag, Ptag} from "../components";
+import {Button} from "../components";
 import {Tag} from "../components/Tag/Tag";
+import {useState} from "react";
 
 
 export default function Home() {
+
+  const [counter, setCounter] = useState<number>(0);
+
+  const plus = () => {
+    setCounter(prev => prev + 1);
+  }
+
+  const minus = () => {
+    setCounter(prev => prev - 1);
+  }
+
   return (
-    <>
-      <Htag tag='h1'>
-            Hello
-      </Htag>
-        <Button arrow={"right"} appearance='primary'>
-            Hello
-        </Button>
-      <Ptag size='s'>
-          Hello PP
-      </Ptag>
-      <Tag size='s' color='red'>Henlo</Tag>
-      <Tag size='m' color='green'>Henlo</Tag>
-    </>
+      <>
+        <Tag color='red'>{counter}</Tag>
+        <Button onClick={plus}>+1</Button>
+        <Button onClick={minus}>-1</Button>
+      </>
   )
 }
