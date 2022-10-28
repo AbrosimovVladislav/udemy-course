@@ -7,7 +7,7 @@ export default function Home() {
       <Htag tag='h1'>
             Hello
       </Htag>
-        <Button appearance='primary'>
+        <Button arrow={"right"} appearance='primary'>
             Hello
         </Button>
     </>

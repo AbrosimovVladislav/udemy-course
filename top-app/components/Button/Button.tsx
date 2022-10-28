@@ -5,9 +5,10 @@ import cn from 'classnames';
 interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     children: ReactNode;
     appearance: 'primary' | 'ghost';
+    arrow?: 'right' | 'down' | 'none';
 }
 
-export const Button = ({appearance, children, className, ...props}: ButtonProps) => {
+export const Button = ({appearance, children, arrow = 'none', className, ...props}: ButtonProps) => {
 
     const styleCLass = cn(styles.button, className,{
         [styles.primary]: appearance == 'primary',
@@ -19,5 +20,10 @@ export const Button = ({appearance, children, className, ...props}: ButtonProps)
         {...props}
         >
         {children}
+        {arrow!='none' && <span className={cn(styles.arrow,{
+            [styles.down]:arrow == 'down'
+        })}>
+            {'>'}
+        </span>}
     </button>
 }
